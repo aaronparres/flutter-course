@@ -43,7 +43,7 @@ jobs:
     # Run widget tests for our flutter project.
     # - run: flutter test
 
-  build-android-apk:
+  build_android_apk:
     # Build apk.
     - run: flutter build apk
     
