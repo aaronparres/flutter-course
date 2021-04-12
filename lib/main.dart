@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var questions = [
       'What\'s your favourite color?',
-      'What\'s your favourite animal?'
+      'What\'s your favourite animal?',
+      'What\'s your favourite food?',
     ];
     return MaterialApp(
       home: Scaffold(
