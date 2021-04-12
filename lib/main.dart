@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       'What\'s your favourite color?',
       'What\'s your favourite animal?',
       'What\'s your favourite food?',
+      'What\'s your favourite anime?',
     ];
     return MaterialApp(
       home: Scaffold(
