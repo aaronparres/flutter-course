@@ -8,6 +8,7 @@ on:
       - master
 jobs:
   analyze:
+    name: Build & Analyze
     # This job will run on ubuntu virtual machine
     runs-on: ubuntu-latest
     steps:
