@@ -2,20 +2,14 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  void buttonPressedHandler() {
-    print('Hello there!!!');
-  }
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      'What\'s your favourite color?',
-      'What\'s your favourite animal?',
-      'What\'s your favourite food?',
-      'What\'s your favourite tv show?',
-      'What\'s your favourite book?',
-    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -24,25 +18,13 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: Column(
             children: [
-              Text(questions[0]),
-              ElevatedButton(
-                child: Text('Answer 1'),
-                onPressed: () => print('Answer 1 selected'),
-              ),
-              ElevatedButton(
-                child: Text('Answer 2'),
-                onPressed: () => print('Answer 2 selected'),
-              ),
-              ElevatedButton(
-                child: Text('Answer 3'),
-                onPressed: () => print('Answer 3 selected'),
-              ),
+              Text('Hello there'),
             ],
           ),
         ),
         floatingActionButton: ElevatedButton(
           child: Text('hello there'),
-          onPressed: buttonPressedHandler,
+          onPressed: () => print('Hello there'),
         ),
       ),
     );
