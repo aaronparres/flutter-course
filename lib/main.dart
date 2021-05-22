@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 
+import 'question.dart';
+
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  void buttonPressedHandler() {
-    print('Hello there!!!');
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
+
+  void _buttonPressedHandler() {
+    setState(() {
+      _questionIndex = _questionIndex + 1;
+    });
+    print(_questionIndex);
   }
 
   @override
@@ -24,25 +36,26 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: Column(
             children: [
-              Text(questions[0]),
+              Question(
+                  questionText: questions[_questionIndex]),
               ElevatedButton(
                 child: Text('Answer 1'),
-                onPressed: () => print('Answer 1 selected'),
+                onPressed: _buttonPressedHandler,
               ),
               ElevatedButton(
                 child: Text('Answer 2'),
-                onPressed: () => print('Answer 2 selected'),
+                onPressed: _buttonPressedHandler,
               ),
               ElevatedButton(
                 child: Text('Answer 3'),
-                onPressed: () => print('Answer 3 selected'),
+                onPressed: _buttonPressedHandler,
               ),
             ],
           ),
         ),
         floatingActionButton: ElevatedButton(
           child: Text('hello there'),
-          onPressed: buttonPressedHandler,
+          onPressed: () => print('Hello there'),
         ),
       ),
     );
