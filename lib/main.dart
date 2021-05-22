@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'question.dart';
+import 'answerButton.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,11 +23,46 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      'What\'s your favourite color?',
-      'What\'s your favourite animal?',
-      'What\'s your favourite food?',
-      'What\'s your favourite tv show?',
-      'What\'s your favourite book?',
+      {
+        'questionText': 'What\'s your favourite color?',
+        'answers': [
+          'Blue',
+          'Red',
+          'Green',
+        ]
+      },
+      {
+        'questionText': 'What\'s your favourite animal?',
+        'answers': [
+          'Dog',
+          'Cat',
+          'Tortoise',
+        ]
+      },
+      {
+        'questionText': 'What\'s your favourite food?',
+        'answers': [
+          'Burger',
+          'Pizza',
+          'Tortilla de patatas',
+        ]
+      },
+      {
+        'questionText': 'What\'s your favourite tv show?',
+        'answers': [
+          'Jimmy Fallon\'s show',
+          'El Hormiguero',
+          'Jackass',
+        ]
+      },
+      {
+        'questionText': 'What\'s your favourite book?',
+        'answers': [
+          'Shadow and Bone',
+          'Hunger Games',
+          'Harry Potter',
+        ]
+      },
     ];
     return MaterialApp(
       home: Scaffold(
@@ -36,20 +72,13 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             children: [
-              Question(
-                  questionText: questions[_questionIndex]),
-              ElevatedButton(
-                child: Text('Answer 1'),
-                onPressed: _buttonPressedHandler,
-              ),
-              ElevatedButton(
-                child: Text('Answer 2'),
-                onPressed: _buttonPressedHandler,
-              ),
-              ElevatedButton(
-                child: Text('Answer 3'),
-                onPressed: _buttonPressedHandler,
-              ),
+              Question(questionText: questions[_questionIndex]['questionText']),
+              ...(questions[_questionIndex]['answers'] as List<String>)
+                  .map((answer) => AnswerButton(
+                        answerCallbackFunc: _buttonPressedHandler,
+                        answerText: answer,
+                      ))
+                  .toList(),
             ],
           ),
         ),
