@@ -8,21 +8,26 @@ class QuizzModule extends StatelessWidget {
   final int questionIndex;
   final Function buttonPressedHandler;
 
-  QuizzModule(
-      {@required this.questions,
-      @required this.questionIndex,
-      @required this.buttonPressedHandler});
+  QuizzModule({
+    @required this.questions,
+    @required this.questionIndex,
+    @required this.buttonPressedHandler,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Question(questionText: questions[questionIndex]['questionText']),
-        ...(questions[questionIndex]['answers'] as List<String>)
-            .map((answer) => AnswerButton(
-                  answerCallbackFunc: buttonPressedHandler,
-                  answerText: answer,
-                ))
+        Question(
+          questionText: questions[questionIndex]['questionText'],
+        ),
+        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
+            .map(
+              (answer) => AnswerButton(
+                answerCallbackFunc: () => buttonPressedHandler(answer['score']),
+                answerText: answer['text'],
+              ),
+            )
             .toList(),
       ],
     );

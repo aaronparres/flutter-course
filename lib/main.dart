@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var _totalScore = 0;
   final _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
@@ -42,7 +43,9 @@ class _MyAppState extends State<MyApp> {
     },
   ];
 
-  void _buttonPressedHandler() {
+  void _buttonPressedHandler(int score) {
+    _totalScore += score;
+
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
@@ -51,12 +54,21 @@ class _MyAppState extends State<MyApp> {
     if (_questionIndex < _questions.length) print('We have more questions!!!');
   }
 
+  void _resetQuizz() {
+    setState(() {
+      _totalScore = 0;
+      _questionIndex = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('QUIZZ APP'),
+          title: Text(
+            'QUIZZ APP',
+          ),
           backgroundColor: Colors.teal.shade300,
         ),
         body: Center(
@@ -64,13 +76,20 @@ class _MyAppState extends State<MyApp> {
               ? QuizzModule(
                   questions: _questions,
                   questionIndex: _questionIndex,
-                  buttonPressedHandler: _buttonPressedHandler)
-              : Results(),
+                  buttonPressedHandler: _buttonPressedHandler,
+                )
+              : Results(
+                  score: _totalScore,
+                  resetHandler: _resetQuizz,
+                ),
         ),
         floatingActionButton: ElevatedButton(
           style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.teal.shade300)),
-          child: Text('hello there'),
+            backgroundColor: MaterialStateProperty.all(Colors.teal.shade300),
+          ),
+          child: Text(
+            'hello there',
+          ),
           onPressed: () => print('Hello there'),
         ),
       ),
