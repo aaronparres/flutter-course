@@ -83,9 +83,10 @@ class _MyAppState extends State<MyApp> {
                   resetHandler: _resetQuizz,
                 ),
         ),
-        floatingActionButton: ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.teal.shade300),
+        floatingActionButton: OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            primary: Colors.teal.shade700,
+            side: BorderSide(color: Colors.teal.shade700),
           ),
           child: Text(
             'hello there',

@@ -40,9 +40,7 @@ class Results extends StatelessWidget {
               fontSize: 22,
             ),
           ),
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(Colors.teal),
-          ),
+          style: TextButton.styleFrom(primary: Colors.teal),
           onPressed: resetHandler,
         ),
       ],

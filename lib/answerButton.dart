@@ -11,9 +11,9 @@ class AnswerButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.teal.shade300),
-          foregroundColor: MaterialStateProperty.all(Colors.white),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.teal.shade300,
+          onPrimary: Colors.white,
         ),
         child: Text(answerText),
         onPressed: answerCallbackFunc,
