@@ -11,6 +11,8 @@ class MyApp extends StatelessWidget {
           title: Text('PERSONAL EXPENSES'),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
               width: double.infinity,
