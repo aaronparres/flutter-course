@@ -23,6 +23,7 @@ class Results extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(
           resultPhrase,
@@ -32,7 +33,14 @@ class Results extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        TextButton(
+        OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            primary: Colors.teal,
+            side: BorderSide(
+              width: 2,
+              color: Colors.teal,
+            ),
+          ),
           child: Text(
             'Reset',
             style: TextStyle(
@@ -40,7 +48,6 @@ class Results extends StatelessWidget {
               fontSize: 22,
             ),
           ),
-          style: TextButton.styleFrom(primary: Colors.teal),
           onPressed: resetHandler,
         ),
       ],

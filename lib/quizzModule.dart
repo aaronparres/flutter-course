@@ -16,20 +16,24 @@ class QuizzModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Question(
-          questionText: questions[questionIndex]['questionText'],
-        ),
-        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
-            .map(
-              (answer) => AnswerButton(
-                answerCallbackFunc: () => buttonPressedHandler(answer['score']),
-                answerText: answer['text'],
-              ),
-            )
-            .toList(),
-      ],
+    return Container(
+      margin: EdgeInsets.all(24),
+      child: Column(
+        children: [
+          Question(
+            questionText: questions[questionIndex]['questionText'],
+          ),
+          ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
+              .map(
+                (answer) => AnswerButton(
+                  answerCallbackFunc: () =>
+                      buttonPressedHandler(answer['score']),
+                  answerText: answer['text'],
+                ),
+              )
+              .toList(),
+        ],
+      ),
     );
   }
 }
