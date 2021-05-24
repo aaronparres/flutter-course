@@ -21,7 +21,7 @@ class TransactionListItem extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.blueGrey,
+                color: Theme.of(context).primaryColor,
                 width: 2,
               ),
             ),
@@ -31,7 +31,7 @@ class TransactionListItem extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
-                color: Colors.blueGrey,
+                color: Theme.of(context).accentColor,
               ),
             ),
           ),
@@ -49,7 +49,7 @@ class TransactionListItem extends StatelessWidget {
                 DateFormat.yMMMMd().format(item.date),
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.grey.shade700,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ],

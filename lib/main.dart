@@ -12,6 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Personal Expenses App',
+      theme: ThemeData(
+        primarySwatch: Colors.pink,
+        accentColorBrightness: Brightness.dark,
+        accentColor: Colors.orange[400],
+      ),
       home: MyHomePage(),
     );
   }
@@ -65,7 +70,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PERSONAL EXPENSES'),
+        title: Text(
+          'Personal Expenses',
+          style: TextStyle(color: Colors.white),
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.add),
