@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './widgets/transactionListItem.dart';
+import 'widgets/transaction_list_item.dart';
 
 import './models/transaction.dart';
 
@@ -21,6 +21,10 @@ class MyApp extends StatelessWidget {
       date: DateTime.now(),
     ),
   ];
+  // String titleInput;
+  // String amountInput;
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,7 @@ class MyApp extends StatelessWidget {
           title: Text('PERSONAL EXPENSES'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
@@ -39,6 +43,37 @@ class MyApp extends StatelessWidget {
                 color: Colors.blue,
                 child: Text('Chart'),
                 elevation: 5,
+              ),
+            ),
+            Card(
+              elevation: 5,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                      // onChanged: (value) => titleInput = value,
+                      controller: titleController,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                      // onChanged: (value) => amountInput = value,
+                      controller: amountController,
+                    ),
+                    TextButton(
+                      child: Text('Add Transaction'),
+                      onPressed: () {
+                        print(titleController.text);
+                        print(amountController.text);
+                      },
+                      style: TextButton.styleFrom(
+                        primary: Colors.blueGrey,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Column(
