@@ -50,7 +50,7 @@ class _NewTransactionState extends State<NewTransaction> {
               child: Text('Add Transaction'),
               onPressed: _submitData,
               style: TextButton.styleFrom(
-                primary: Theme.of(context).primaryColorDark,
+                primary: Theme.of(context).accentColor,
               ),
             )
           ],
