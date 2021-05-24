@@ -1,96 +1,44 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/transaction_list_item.dart';
-
-import './models/transaction.dart';
+import './widgets/user_transaction.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  final List<Transaction> _transactions = [
-    Transaction(
-      id: 't1',
-      title: 'iPhone',
-      amount: 850.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Nike Shoes',
-      amount: 120.95,
-      date: DateTime.now(),
-    ),
-  ];
-  // String titleInput;
-  // String amountInput;
-  final titleController = TextEditingController();
-  final amountController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('PERSONAL EXPENSES'),
-        ),
-        body: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.blue,
-                child: Text('Chart'),
-                elevation: 5,
-              ),
-            ),
-            Card(
+      title: 'Personal Expenses App',
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('PERSONAL EXPENSES'),
+      ),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            child: Card(
+              color: Colors.blue,
+              child: Text('Chart'),
               elevation: 5,
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Title'),
-                      // onChanged: (value) => titleInput = value,
-                      controller: titleController,
-                    ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Amount'),
-                      // onChanged: (value) => amountInput = value,
-                      controller: amountController,
-                    ),
-                    TextButton(
-                      child: Text('Add Transaction'),
-                      onPressed: () {
-                        print(titleController.text);
-                        print(amountController.text);
-                      },
-                      style: TextButton.styleFrom(
-                        primary: Colors.blueGrey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
             ),
-            Column(
-              children: _transactions
-                  .map(
-                    (transaction) => TransactionListItem(
-                      item: transaction,
-                    ),
-                  )
-                  .toList(),
-            ),
-          ],
-        ),
-        floatingActionButton: ElevatedButton(
-          child: Text('hello there'),
-          onPressed: () => print('Hello there'),
-        ),
+          ),
+          UserTransactions(),
+        ],
+      ),
+      floatingActionButton: ElevatedButton(
+        child: Text('hello there'),
+        onPressed: () => print('Hello there'),
       ),
     );
   }
