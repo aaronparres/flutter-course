@@ -13,9 +13,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses App',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        accentColorBrightness: Brightness.dark,
-        accentColor: Colors.orange[400],
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+        ),
+        fontFamily: 'Quicksand',
+        primarySwatch: Colors.grey,
+        accentColor: Colors.limeAccent[700],
+        textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: TextStyle(
+                fontFamily: 'OpenSans',
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
       ),
       home: MyHomePage(),
     );
@@ -89,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: double.infinity,
               child: Card(
-                color: Colors.blue,
+                color: Colors.blueGrey,
                 child: Text('Chart'),
                 elevation: 5,
               ),
