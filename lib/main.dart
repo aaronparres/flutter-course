@@ -4,6 +4,7 @@ import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
 
 import './models/transaction.dart';
+import 'widgets/chart.dart';
 
 void main() => runApp(MyApp());
 
@@ -76,9 +77,10 @@ class _MyHomePageState extends State<MyHomePage> {
     showModalBottomSheet(
       context: ctx,
       builder: (_) => GestureDetector(
-          onTap: () {},
-          behavior: HitTestBehavior.opaque,
-          child: NewTransaction(onAddPressed: _addNewTransaction)),
+        onTap: () {},
+        behavior: HitTestBehavior.opaque,
+        child: NewTransaction(onAddPressed: _addNewTransaction),
+      ),
     );
   }
 
@@ -104,11 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              child: Card(
-                color: Colors.blueGrey,
-                child: Text('Chart'),
-                elevation: 5,
-              ),
+              child: Chart(),
             ),
             TransactionList(userTransactions: _transactions),
           ],
