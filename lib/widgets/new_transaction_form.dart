@@ -46,13 +46,31 @@ class _NewTransactionFormState extends State<NewTransactionForm> {
               onSubmitted: (_) => _submitData(),
               // onChanged: (value) => amountInput = value,
             ),
-            TextButton(
+            Container(
+              height: 70,
+              child: Row(
+                children: [
+                  Text('No Date Chosen!'),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      primary: Theme.of(context).accentColor,
+                    ),
+                    child: Text(
+                      'Choose Date',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+            ),
+            ElevatedButton(
               child: Text('Add Transaction'),
               onPressed: _submitData,
-              style: TextButton.styleFrom(
-                primary: Theme.of(context).accentColor,
+              style: OutlinedButton.styleFrom(
+                primary: Theme.of(context).textTheme.button.color,
               ),
-            )
+            ),
           ],
         ),
       ),
