@@ -60,6 +60,16 @@ class _MyHomePageState extends State<MyHomePage> {
     // ),
   ];
 
+  List<Transaction> get _recentTransactions => _transactions
+      .where(
+        (tx) => tx.date.isAfter(
+          DateTime.now().subtract(
+            Duration(days: 7),
+          ),
+        ),
+      )
+      .toList();
+
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
       title: txTitle,
@@ -104,10 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Chart(),
-            ),
+            Chart(recentTransactions: _recentTransactions),
             TransactionList(userTransactions: _transactions),
           ],
         ),
