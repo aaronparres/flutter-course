@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import './transaction_list_item.dart';
+import 'transaction_list_item.dart';
 
-import '../models/transaction.dart';
+import '../../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> userTransactions;
@@ -21,7 +21,7 @@ class TransactionList extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Container(
                   height: 200,

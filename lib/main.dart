@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import './widgets/transaction_list.dart';
+import './widgets/transaction_list/transaction_list.dart';
 import './widgets/new_transaction.dart';
+import './widgets/chart/chart.dart';
 
 import './models/transaction.dart';
-import 'widgets/chart.dart';
 
 void main() => runApp(MyApp());
 
