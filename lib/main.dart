@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './widgets/transaction_list/transaction_list.dart';
-import './widgets/new_transaction.dart';
+import './widgets/new_transaction_form.dart';
 import './widgets/chart/chart.dart';
 
 import './models/transaction.dart';
@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (_) => GestureDetector(
         onTap: () {},
         behavior: HitTestBehavior.opaque,
-        child: NewTransaction(onAddPressed: _addNewTransaction),
+        child: NewTransactionForm(onAddPressed: _addNewTransaction),
       ),
     );
   }

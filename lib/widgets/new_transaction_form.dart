@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatefulWidget {
+class NewTransactionForm extends StatefulWidget {
   final Function onAddPressed;
 
-  NewTransaction({this.onAddPressed});
+  NewTransactionForm({this.onAddPressed});
 
   @override
-  _NewTransactionState createState() => _NewTransactionState();
+  _NewTransactionFormState createState() => _NewTransactionFormState();
 }
 
-class _NewTransactionState extends State<NewTransaction> {
+class _NewTransactionFormState extends State<NewTransactionForm> {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
