@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -56,6 +59,9 @@ class _NewTransactionFormState extends State<NewTransactionForm> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
+              // CupertinoTextField(
+              //   placeholder: 'Title',
+              // ),
               TextField(
                 decoration: InputDecoration(labelText: 'Title'),
                 controller: _titleController,
@@ -80,16 +86,27 @@ class _NewTransactionFormState extends State<NewTransactionForm> {
                             : 'Picked Date: ${DateFormat.yMMMd().format(_selectedDate)}',
                       ),
                     ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Theme.of(context).accentColor,
-                      ),
-                      child: Text(
-                        'Choose Date',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: _summonDatePicker,
-                    )
+                    Platform.isIOS
+                        ? CupertinoButton(
+                            child: Text(
+                              'Choose Date',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).accentColor,
+                              ),
+                            ),
+                            onPressed: _summonDatePicker,
+                          )
+                        : TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Theme.of(context).accentColor,
+                            ),
+                            child: Text(
+                              'Choose Date',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            onPressed: _summonDatePicker,
+                          )
                   ],
                 ),
               ),
