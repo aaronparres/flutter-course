@@ -33,53 +33,21 @@ class TransactionListItem extends StatelessWidget {
         ),
         title: Text(item.title),
         subtitle: Text(DateFormat.yMMMd().format(item.date)),
-        trailing: IconButton(
-          icon: Icon(Icons.delete),
-          color: Theme.of(context).errorColor,
-          onPressed: () => deleteTx(item.id),
-        ),
+        trailing: MediaQuery.of(context).size.width > 460
+            ? TextButton.icon(
+                icon: Icon(Icons.delete),
+                label: Text('Delete'),
+                style: TextButton.styleFrom(
+                  primary: Theme.of(context).errorColor,
+                ),
+                onPressed: () => deleteTx(item.id),
+              )
+            : IconButton(
+                icon: Icon(Icons.delete),
+                color: Theme.of(context).errorColor,
+                onPressed: () => deleteTx(item.id),
+              ),
       ),
-      // child: Row(
-      //   children: <Widget>[
-      //     Container(
-      //       margin: EdgeInsets.symmetric(
-      //         vertical: 10,
-      //         horizontal: 15,
-      //       ),
-      //       decoration: BoxDecoration(
-      //         border: Border.all(
-      //           color: Theme.of(context).primaryColor,
-      //           width: 2,
-      //         ),
-      //       ),
-      //       padding: EdgeInsets.all(10),
-      //       child: Text(
-      //         '\$ ${item.amount.toStringAsFixed(2)}',
-      //         style: TextStyle(
-      //           fontWeight: FontWeight.bold,
-      //           fontSize: 20,
-      //           color: Theme.of(context).accentColor,
-      //         ),
-      //       ),
-      //     ),
-      //     Column(
-      //       crossAxisAlignment: CrossAxisAlignment.start,
-      //       children: <Widget>[
-      //         Text(
-      //           item.title,
-      //           style: Theme.of(context).textTheme.headline6,
-      //         ),
-      //         Text(
-      //           DateFormat.yMMMMd().format(item.date),
-      //           style: TextStyle(
-      //             fontSize: 12,
-      //             color: Theme.of(context).primaryColor,
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

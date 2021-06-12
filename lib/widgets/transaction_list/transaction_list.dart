@@ -26,7 +26,7 @@ class TransactionList extends StatelessWidget {
                     height: 30,
                   ),
                   Container(
-                    height: constraints.maxHeight * 0.6,
+                    height: constraints.maxHeight * 0.5,
                     child: Image.asset(
                       'assets/images/waiting.png',
                       fit: BoxFit.cover,
