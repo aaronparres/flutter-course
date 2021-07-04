@@ -2,30 +2,34 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('hello there'),
-        ),
-        body: Center(
-          child: Column(
-            children: [
-              Text('Hello there'),
-            ],
-          ),
-        ),
-        floatingActionButton: ElevatedButton(
-          child: Text('hello there'),
-          onPressed: () => print('Hello there'),
-        ),
+      title: 'DeliMeals',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+    @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('DeliMeals'),
+      ),
+      body: Center(
+        child: Text('Navigation Time!'),
       ),
     );
   }
